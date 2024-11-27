@@ -3,6 +3,8 @@
 from app import app
 from flask import request
 
+import networkx as nx
+
 items = []
 
 @app.route('/')
@@ -16,6 +18,22 @@ def hello2():
 @app.route('/items', methods=['GET'])
 def get_items():
     return {'items': items}
+
+def bigram_edges(tokens):
+    edgetable = list(zip(tokens[:-1], tokens[1:]))
+    return edgetable
+
+@app.route('/network')
+def viewnetwork():
+    keywords_nodes = []
+
+    tokens = ['bilbo', 'baggin', 'bagend', 'announce', 'shortly', 'celebrate', 'eleventy', 'birthday', 'party', 'special', 'magnificence', 'talk', 'excitement', 'hobbiton', 'bilbo', 'rich', 'peculiar', 'wonder', 'shire', 'year', 'remarkable', 'disappearance', 'unexpected', 'return', 'rich', 'bring', 'travel', 'local', 'legend', 'popularly', 'believe', 'old', 'folk', 'hill', 'bagend', 'tunnel', 'stuff', 'treasure', 'fame', 'prolong', 'vigour', 'marvel', 'time', 'wear', 'little', 'effect', 'baggin', 'ninety', 'ninety', 'begin', 'preserve', 'unchanged', 'nearer', 'mark', 'shake', 'head', 'think', 'good', 'thing', 'unfair', 'possess', 'apparently', 'perpetual', 'youth', 'reputedly', 'inexhaustible', 'wealth', 'pay', 'say', 'not', 'natural', 'trouble', 'come', 'far', 'trouble', 'come', 'baggin', 'generous', 'money', 'people', 'willing', 'forgive', 'oddity', 'good', 'fortune', 'remain', 'visit', 'term', 'relative', 'course', 'sackville', 'bagginse', 'devoted', 'admirer', 'hobbit', 'poor', 'unimportant', 'family', 'close', 'friend', 'young', 'cousin', 'begin', 'grow', 'eld', 'bilbos', 'favourite', 'young', 'frodo', 'baggin', 'bilbo', 'ninety', 'adopt', 'frodo', 'heir', 'bring', 'live', 'bagend', 'hope', 'sackvillebagginse', 'finally', 'dash', 'bilbo', 'frodo', 'happen', 'birthday', 'september', '22nd', 'well', 'come', 'live', 'frodo', 'lad', 'say', 'bilbo', 'day', 'celebrate', 'birthday', 'party', 'comfortably', 'time', 'frodo', 'tweens', 'hobbit', 'call', 'irresponsible', 'twenty', 'childhood', 'come', 'age', 'thirty']
+
+    edgetable = bigram_edges(tokens)
+
+    return "NETWORK, AXXONN!"
+
+
 
 @app.route('/items/<int:item_id>', methods=['GET'])
 def get_item(item_id):
