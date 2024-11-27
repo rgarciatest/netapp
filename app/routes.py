@@ -23,7 +23,12 @@ def bigram_edges(tokens):
     edgetable = list(zip(tokens[:-1], tokens[1:]))
     return edgetable
 
-@app.route('/network')
+@app.route('/hello3')
+def hello3():
+    render_template('hello3.html', content="Hello World!")
+
+
+@app.route('/net')
 def viewnetwork():
     keywords_nodes = []
 
