@@ -27,6 +27,10 @@ def bigram_edges(tokens):
 def hello3():
     render_template('hello3.html', content="Hello World!")
 
+@app.route('/hello4')
+def hello4():
+    render_template('hello4.html', content="Hello World!")
+
 
 @app.route('/net')
 def viewnetwork():
@@ -37,8 +41,6 @@ def viewnetwork():
     edgetable = bigram_edges(tokens)
 
     return "NETWORK, AXXONN!"
-
-
 
 @app.route('/items/<int:item_id>', methods=['GET'])
 def get_item(item_id):
