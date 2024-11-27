@@ -9,6 +9,10 @@ items = []
 def hello():
     return "Hello, AXXONN!"
 
+@app.route('/hello2')
+def hello2():
+    return "Hello2, AXXONN!"
+
 @app.route('/items', methods=['GET'])
 def get_items():
     return {'items': items}
