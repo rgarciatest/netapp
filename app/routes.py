@@ -2,6 +2,7 @@
 
 from app import app
 from flask import request
+from flask import render_template
 
 import networkx as nx
 
@@ -23,29 +24,6 @@ def bigram_edges(tokens):
     edgetable = list(zip(tokens[:-1], tokens[1:]))
     return edgetable
 
-# @app.route('/web0')
-# def web0():
-#     render_template('web0.html', content="Hello World WEB0!")
-
-# @app.route('/web1')
-# def web1():
-#     render_template('web1.html', content="Hello World WEB1!")
-
-@app.route('/web1')
-def web1():
-    render_template('web1.html')
-
-@app.route('/web0')
-def web0():
-    render_template('web0.html')
-
-@app.route('/web11')
-def web11():
-    render_template('web11.html')
-
-@app.route('/web00')
-def web00():
-    render_template('web00.html')
 
 @app.route('/net')
 def viewnetwork():
@@ -69,3 +47,36 @@ def add_item():
     item = request.get_json()
     items.append(item)
     return {'message': 'Item added successfully'}, 201
+
+@app.route('/web1')
+def web1():
+    render_template('web1.html')
+
+@app.route('/web0')
+def web0():
+    render_template('web0.html')
+
+
+
+
+
+
+
+
+# @app.route('/web0')
+# def web0():
+#     render_template('web0.html', content="Hello World WEB0!")
+
+# @app.route('/web1')
+# def web1():
+#     render_template('web1.html', content="Hello World WEB1!")
+
+
+
+# @app.route('/web11')
+# def web11():
+#     render_template('web11.html')
+
+# @app.route('/web00')
+# def web00():
+#     render_template('web00.html')
