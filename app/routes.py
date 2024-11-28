@@ -8,13 +8,17 @@ import networkx as nx
 
 items = []
 
+# @app.route('/')
+# def home():
+#    return render_template('index.html')
+
 @app.route('/')
 def home():
-   return render_template('index.html')
+    return "HOME: Hello, AXXONN!"
 
-# @app.route('/')
-# def hello():
-#     return "Hello, AXXONN!"
+@app.route('/web')
+def web():
+   return render_template('app/index.html')
 
 @app.route('/hello')
 def hello():
